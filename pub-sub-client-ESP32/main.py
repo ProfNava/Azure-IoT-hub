@@ -4,7 +4,7 @@ import json
 import utime
 from util import create_mqtt_client, get_telemetry_topic, get_c2d_topic, parse_connection
 
-ConnString_Azure = "HostName=IoTcourse-hub.azure-devices.net;DeviceId=Esp001;SharedAccessKey=HCDPttzB1Y8ime7qZ5NSfpDFHxM+wGl3e8mWK9k0co0="
+ConnString_Azure = "CONN STRING"
 
 dict_keys = parse_connection(ConnString_Azure)
 
@@ -41,7 +41,7 @@ def getsas(hubname, deviceid, key):
     dict["key"] = key
     dict["expiryInSeconds"]=86400
     payload = ujson.dumps(dict)
-    response = urequests.post('https://getsasiot.azurewebsites.net/api/HttpTrigger1?code=b4kTDT_J2cd4ZI3JzKCugB9-U1DV-QxkaPcYDurhnedcAzFueSsRAA==', data=payload)
+    response = urequests.post('COLOCAR AQUI SU FUNCION SAS AUTOMATICO', data=payload)
     
     return response.text
 
@@ -49,11 +49,7 @@ def getsas(hubname, deviceid, key):
 def callback_handler(topic, message_receive):
     print('Received topic={} message={}'.format(topic, message_receive))
     message_text = message_receive.decode('utf-8')
-    if message_text == "Data":
-        print("Mensaje recibido es igual a 'Data'")
-        send_data()
-    else:
-        print("Mensaje recibido  no es igual a 'Data'")
+    print(message_text)
 
 def send_ping():
     print("Enviando Ping....")
