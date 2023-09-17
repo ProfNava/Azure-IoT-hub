@@ -30,7 +30,8 @@ device_id = dict_keys.get(DEVICE_ID)
 module_id = dict_keys.get(MODULE_ID)
 
 # username = '<HOSTNAME>/<DEVICE_ID>'
-username = hostname + '/' + device_id
+#username = hostname + '/' + device_id
+username = hostname + '/' + device_id + '/?api-version=2018-06-30'
 
 ################## Funciones IoT##################
 def getsas(hubname, deviceid, key):
