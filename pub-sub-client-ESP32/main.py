@@ -19,8 +19,9 @@ GATEWAY_HOST_NAME = "GatewayHostName"
 # Crear un temporizador para enviar pings periódicamente
 ping_timer = Timer(-1)
 ping_interval = 60  # Intervalo en segundos (ajusta según tus necesidades)
+data_interval = 20
 ping_timer.init(period=ping_interval * 1000, mode=Timer.PERIODIC, callback=lambda t: send_ping())
-
+ping_timer.init(period=data_interval * 1000, mode=Timer.PERIODIC, callback=lambda t: send_data())
 
 shared_access_key = dict_keys.get(SHARED_ACCESS_KEY)
 shared_access_key_name =  dict_keys.get(SHARED_ACCESS_KEY_NAME)
